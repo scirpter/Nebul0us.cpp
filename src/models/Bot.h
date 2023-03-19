@@ -21,8 +21,10 @@ namespace specific
 
     struct BlobData
     {
-        std::string name;
-        std::string ticket;
+        BlobData(const std::string name, const std::string ticket) : m_name(name), m_ticket(ticket) {}
+
+        const std::string m_name;
+        const std::string m_ticket;
         not_implemented_t m_skin = nullptr;
         not_implemented_t m_rainbow_cycle = nullptr;
         not_implemented_t m_name_font = nullptr;
@@ -33,13 +35,15 @@ namespace specific
         not_implemented_t m_eject_skin = nullptr;
     };
 
-    struct net
+    struct Net
     {
+        Net(const std::string ip, const uint16_t port) : m_ip(ip), m_port(port) {}
+
         not_implemented_t m_connection_state = nullptr;
-        std::string m_ip;
-        uint16_t m_port;
-        not_implemented_t m_sock = nullptr;
-        models::World *p_world;
+        const std::string m_ip;
+        const uint16_t m_port;
+        const not_implemented_t m_sock = nullptr;
+        static models::World *p_world; // static to share with other bots
 
         /*
             Two tokens received from CONNECT_RESULT_2 (0x01).
@@ -65,9 +69,11 @@ namespace models
     class Bot
     {
     public:
+        Bot(const uint8_t uniquifier, const std::string name, const std::string ticket, const std::string ip, const uint16_t port);
+
         const uint8_t m_uniquifier;
         specific::Control *p_control;
         specific::BlobData *p_blob_data;
-        specific::net *p_net;
+        specific::Net *p_net;
     };
 }
