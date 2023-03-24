@@ -3,5 +3,5 @@ Networked Nebulous.io cheat made from reverse engineering the minified Java sour
 
 <br />
 
-# CANCELLED
+# PAUSED
 Active versions were "fixed" in update **6.0.3**. This is going to be the new public version, just not now.
