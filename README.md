@@ -3,5 +3,4 @@ Nebul0us is a completely external, networked Nebulous.io cheat made from reverse
 
 <br />
 
-# PAUSED
-Active versions were "fixed" in update **6.0.3**. This is going to be the new public version, just not now.
+# DEPRECATED
